@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinalyze Liquidation Downloader</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+        input[type="checkbox"] {
+            margin-bottom: 15px;
+            margin-left: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        #status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .status-info {
+            background-color: #e7f3fe;
+            border: 1px solid #d0e3f0;
+            color: #0c5460;
+        }
+        .status-success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .status-error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Coinalyze Liquidation History Downloader</h1>
+
+    <label for="apiKey">API Key:</label>
+    <input type="text" id="apiKey" value="84bd6d2d-4045-4b53-8b61-151c618d4311">
+
+    <label for="symbols">Symbols (comma-separated):</label>
+    <input type="text" id="symbols" value="BTCUSDT_PERP.A">
+
+    <label for="interval">Interval:</label>
+    <select id="interval">
+        <option value="1min">1 minute</option>
+        <option value="5min">5 minutes</option>
+        <option value="15min">15 minutes</option>
+        <option value="30min">30 minutes</option>
+        <option value="1hour" selected>1 hour</option>
+        <option value="4hour">4 hours</option>
+        <option value="1day">1 day</option>
+    </select>
+
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate">
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate">
+
+    <label for="convertToUsd">Convert to USD:</label>
+    <input type="checkbox" id="convertToUsd">
+
+    <button id="fetchButton">Fetch and Download CSV</button>
+
+    <div id="status"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
